@@ -3,6 +3,8 @@
 #read in models of language change over generation of speakers
 #ultimately want PgivC
 
+#LOOK AT 12.14 AND SEE THE MESSAGE YOU WANT TO GENERATE
+
 import model
 
 input = ["G : who = .1", "G : whom = .9", "P who : who = 1", "P who : whom = 0", 

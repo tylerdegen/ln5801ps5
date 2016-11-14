@@ -12,3 +12,7 @@ for line in input:
 	R.read(line)
 	W.read(line)
 	O.read(line)
+
+Idata = "I [naek] [nek] [naek]"
+
+RivenIdata = model.Model("RgivI")
