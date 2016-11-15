@@ -40,9 +40,12 @@ for p in C:
 	for c in C[p]:
 		CgivNone[c] += C[p][c] / len(C[c])
 
+
+#use bayesian!
 for p in C:
 	for c in C[p]:
-		PgivC[c][p] = PC[p, c] / CgivNone[c]
+		PgivC[c][p] = (C[p][c] * PgivNone[p] / CgivNone[c])
+
 
 		
 print("PgivC:")
