@@ -1,10 +1,3 @@
-#here we go writing python
-
-#read in models of language change over generation of speakers
-#ultimately want PgivC
-
-#LOOK AT 12.14 AND SEE THE MESSAGE YOU WANT TO GENERATE
-
 import model
 
 input = ["G : who = .1", "G : whom = .9", "P who : who = 1", "P who : whom = 0", 
@@ -55,29 +48,5 @@ for p in C:
 print("PgivC:")
 for c in PgivC:
 	for p in PgivC[c]:
-		#PgivC[c][p] = C[p][c] * PgivNone[p] / CgivNone[c]
 		print(str(PgivC[c][p]), c, p)
 
-
-'''
-for p in PgivNone:
-	print(str(PgivNone[p]), p)
-for c in CgivNone:
-	print(str(CgivNone[c]), c)
-
-print("probability, given chhild pronunciation, parent pronunciation")
-
-for g in G:
-	for p in P:
-		for c in C:
-			PgivC[c][p] += C[p][c] * P[g][p]
-
-
-
-#for c in P:
-#	for p in P[c]:
-#		PgivC[c][p] += P[
-
-#for c, p in P:
-#	PgivC[c][p] 
-'''

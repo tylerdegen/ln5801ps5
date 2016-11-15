@@ -17,17 +17,10 @@ for line in input:
 
 Idata = "I [naek] [nek] [naek]"
 IdataSplit = Idata.split()
-
-for o in IdataSplit:
-	print(o)
 	
 for r, w in O:
 	for o in O[r,w]:
 		OgivR[r][o] += O[r,w][o] / 2
-		
-for r in OgivR:
-	for o in OgivR[r]:
-		print(o, r, str(OgivR[r][o]))
 
 RgivenIdata = model.Model("RgivI")
 for r in OgivR:
