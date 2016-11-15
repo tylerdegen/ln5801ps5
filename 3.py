@@ -28,14 +28,38 @@ for g in P:
 	for p in P[g]:
 		PgivNone[p] += P[g][p] / len(P[p])
 		
-
+GCP = model.Model("GCP")
+PC = model.Model("PC")
+for g in G:
+	for p in C:
+		for c in C[p]:
+			GCP[g, p, c] = G[g] * P[g][p] * C[p][c]
+			PC[p, c] += G[g] * P[g][p] * C[p][c]
+			
 PgivC = model.CondModel("CgivP")
+
+print("PC:")
+for p, c in PC:
+	print(str(PC[p,c]), p, c)
+
 CgivNone = model.Model("CgivNone")
 for p in C:
 	for c in C[p]:
 		CgivNone[c] += C[p][c] / len(C[c])
-		PgivC[c][p] = 0
 
+for p in C:
+	for c in C[p]:
+		PgivC[c][p] = PC[p, c] / CgivNone[c]
+
+		
+print("PgivC:")
+for c in PgivC:
+	for p in PgivC[c]:
+		#PgivC[c][p] = C[p][c] * PgivNone[p] / CgivNone[c]
+		print(str(PgivC[c][p]), c, p)
+
+
+'''
 for p in PgivNone:
 	print(str(PgivNone[p]), p)
 for c in CgivNone:
@@ -48,10 +72,7 @@ for g in G:
 		for c in C:
 			PgivC[c][p] += C[p][c] * P[g][p]
 
-for c in PgivC:
-	for p in PgivC[c]:
-		#PgivC[c][p] = C[p][c] * PgivNone[p] / CgivNone[c]
-		print(str(PgivC[c][p]), c, p)
+
 
 #for c in P:
 #	for p in P[c]:
@@ -59,3 +80,4 @@ for c in PgivC:
 
 #for c, p in P:
 #	PgivC[c][p] 
+'''
